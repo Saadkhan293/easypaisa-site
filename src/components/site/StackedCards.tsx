@@ -6,6 +6,8 @@ import moneybag from "@/assets/moneybag.png";
 import podium from "@/assets/podium.webp";
 import hero from "@/assets/hero-couch.png";
 
+// hello world
+
 type CardData = {
   eyebrow: string;
   title: string;
