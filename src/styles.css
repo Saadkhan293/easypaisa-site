@@ -1,0 +1,81 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-mint: var(--mint);
+  --color-mint-deep: var(--mint-deep);
+  --color-ink: var(--ink);
+  --color-cream: var(--cream);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --font-display: "Avantt", system-ui, sans-serif;
+  --font-sans: "Avantt", system-ui, sans-serif;
+}
+
+:root {
+  --radius: 1rem;
+  --mint: oklch(0.92 0.045 155);
+  --mint-deep: oklch(0.55 0.12 158);
+  --ink: oklch(0.18 0.02 160);
+  --cream: oklch(0.985 0.008 90);
+  --background: oklch(0.985 0.008 90);
+  --foreground: oklch(0.18 0.02 160);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.02 160);
+  --primary: oklch(0.18 0.02 160);
+  --primary-foreground: oklch(0.985 0.008 90);
+  --secondary: oklch(0.92 0.045 155);
+  --secondary-foreground: oklch(0.18 0.02 160);
+  --muted: oklch(0.95 0.01 155);
+  --muted-foreground: oklch(0.45 0.02 160);
+  --accent: oklch(0.55 0.12 158);
+  --accent-foreground: oklch(0.985 0.008 90);
+  --border: oklch(0.88 0.02 155);
+  --ring: oklch(0.55 0.12 158);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.02 160);
+  --input: oklch(0.88 0.02 155);
+  --destructive: oklch(0.6 0.22 25);
+  --destructive-foreground: oklch(0.985 0.008 90);
+  --card: oklch(1 0 0);
+}
+
+@layer base {
+  @font-face {
+    font-family: "Avantt";
+    src: url("./assets/fonts/AvanttVF.woff2") format("woff2-variations");
+    font-weight: 100 900;
+    font-style: normal;
+  }
+
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
+}
