@@ -98,7 +98,7 @@ function CareersPage() {
                 <img
                   src={heroProtagonist}
                   alt="Team member"
-                  className="relative z-10 w-full rounded-3xl object-cover shadow-2xl"
+                  className="relative z-10 w-full object-cover"
                 />
               </div>
             </FloatY>
@@ -194,7 +194,7 @@ function CareersPage() {
                   <img
                     src={heroCouchLady}
                     alt="Team collaboration"
-                    className="relative z-10 w-full rounded-3xl object-cover shadow-xl"
+                    className="relative z-10 w-full object-cover"
                   />
                 </div>
               </FloatY>
