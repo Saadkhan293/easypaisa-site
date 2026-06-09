@@ -37,7 +37,7 @@ const personalItems: Item[] = [
   { to: "/personal", label: "Wealth Management", desc: "Grow your savings", icon: Wallet },
   { to: "/debit-cards", label: "Debit Cards", desc: "Virtual & physical cards", icon: CreditCard },
   { to: "/personal", label: "Payments", desc: "Send, receive & pay bills", icon: Send },
-  { to: "/personal", label: "Insurance", desc: "Health, life & travel", icon: Shield },
+  { to: "/insurance", label: "Insurance", desc: "Health, life & travel", icon: Shield },
   { to: "/personal", label: "Mini Apps", desc: "Discover in-app services", icon: LayoutGrid },
   { to: "/personal", label: "Loans", desc: "Instant micro-loans", icon: Banknote },
 ];
@@ -214,6 +214,9 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2 sm:gap-3">
+          <Link to="/careers" className="hidden text-sm font-medium hover:underline sm:inline">
+            Careers
+          </Link>
           <Link to="/about" className="hidden text-sm font-medium hover:underline sm:inline">
             Help
           </Link>
@@ -239,6 +242,13 @@ export function Header() {
               <div className="flex-1 overflow-y-auto px-4 py-3">
                 <MobileSection label="Personal" items={personalItems} onNavigate={close} />
                 <MobileSection label="Business" items={businessItems} onNavigate={close} />
+                <Link
+                  to="/careers"
+                  onClick={close}
+                  className="block border-b border-border/60 py-4 text-base font-semibold"
+                >
+                  Careers
+                </Link>
                 <Link
                   to="/about"
                   onClick={close}

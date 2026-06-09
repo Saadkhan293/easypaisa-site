@@ -10,8 +10,10 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as PersonalRouteImport } from './routes/personal'
+import { Route as InsuranceRouteImport } from './routes/insurance'
 import { Route as FeaturesRouteImport } from './routes/features'
 import { Route as DebitCardsRouteImport } from './routes/debit-cards'
+import { Route as CareersRouteImport } from './routes/careers'
 import { Route as BusinessRouteImport } from './routes/business'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -19,6 +21,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const PersonalRoute = PersonalRouteImport.update({
   id: '/personal',
   path: '/personal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InsuranceRoute = InsuranceRouteImport.update({
+  id: '/insurance',
+  path: '/insurance',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FeaturesRoute = FeaturesRouteImport.update({
@@ -29,6 +36,11 @@ const FeaturesRoute = FeaturesRouteImport.update({
 const DebitCardsRoute = DebitCardsRouteImport.update({
   id: '/debit-cards',
   path: '/debit-cards',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CareersRoute = CareersRouteImport.update({
+  id: '/careers',
+  path: '/careers',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BusinessRoute = BusinessRouteImport.update({
@@ -51,16 +63,20 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/business': typeof BusinessRoute
+  '/careers': typeof CareersRoute
   '/debit-cards': typeof DebitCardsRoute
   '/features': typeof FeaturesRoute
+  '/insurance': typeof InsuranceRoute
   '/personal': typeof PersonalRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/business': typeof BusinessRoute
+  '/careers': typeof CareersRoute
   '/debit-cards': typeof DebitCardsRoute
   '/features': typeof FeaturesRoute
+  '/insurance': typeof InsuranceRoute
   '/personal': typeof PersonalRoute
 }
 export interface FileRoutesById {
@@ -68,8 +84,10 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/business': typeof BusinessRoute
+  '/careers': typeof CareersRoute
   '/debit-cards': typeof DebitCardsRoute
   '/features': typeof FeaturesRoute
+  '/insurance': typeof InsuranceRoute
   '/personal': typeof PersonalRoute
 }
 export interface FileRouteTypes {
@@ -78,18 +96,30 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/business'
+    | '/careers'
     | '/debit-cards'
     | '/features'
+    | '/insurance'
     | '/personal'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/business' | '/debit-cards' | '/features' | '/personal'
+  to:
+    | '/'
+    | '/about'
+    | '/business'
+    | '/careers'
+    | '/debit-cards'
+    | '/features'
+    | '/insurance'
+    | '/personal'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/business'
+    | '/careers'
     | '/debit-cards'
     | '/features'
+    | '/insurance'
     | '/personal'
   fileRoutesById: FileRoutesById
 }
@@ -97,8 +127,10 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   BusinessRoute: typeof BusinessRoute
+  CareersRoute: typeof CareersRoute
   DebitCardsRoute: typeof DebitCardsRoute
   FeaturesRoute: typeof FeaturesRoute
+  InsuranceRoute: typeof InsuranceRoute
   PersonalRoute: typeof PersonalRoute
 }
 
@@ -109,6 +141,13 @@ declare module '@tanstack/react-router' {
       path: '/personal'
       fullPath: '/personal'
       preLoaderRoute: typeof PersonalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insurance': {
+      id: '/insurance'
+      path: '/insurance'
+      fullPath: '/insurance'
+      preLoaderRoute: typeof InsuranceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/features': {
@@ -123,6 +162,13 @@ declare module '@tanstack/react-router' {
       path: '/debit-cards'
       fullPath: '/debit-cards'
       preLoaderRoute: typeof DebitCardsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/careers': {
+      id: '/careers'
+      path: '/careers'
+      fullPath: '/careers'
+      preLoaderRoute: typeof CareersRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/business': {
@@ -153,8 +199,10 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   BusinessRoute: BusinessRoute,
+  CareersRoute: CareersRoute,
   DebitCardsRoute: DebitCardsRoute,
   FeaturesRoute: FeaturesRoute,
+  InsuranceRoute: InsuranceRoute,
   PersonalRoute: PersonalRoute,
 }
 export const routeTree = rootRouteImport

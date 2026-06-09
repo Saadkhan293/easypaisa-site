@@ -5,8 +5,8 @@ export function Footer() {
   const cols = [
     { title: "Accounts", items: ["Personal", "Joint", "Business", "Teen"] },
     { title: "Features", items: ["Send money", "Save", "Spend abroad", "Bills"] },
-    { title: "Company", items: ["About", "Careers", "Press", "Contact"] },
-    { title: "Help", items: ["Support", "Security", "FAQs", "Status"] },
+    { title: "Company", items: [{ label: "About", to: "/" }, { label: "Careers", to: "/careers" }, { label: "Press", to: "/" }, { label: "Contact", to: "/" }] },
+    { title: "Help", items: [{ label: "Support", to: "/" }, { label: "Security", to: "/" }, { label: "FAQs", to: "/" }, { label: "Status", to: "/" }] },
   ];
   return (
     <footer className="bg-primary text-primary-foreground">
@@ -24,7 +24,13 @@ export function Footer() {
                 <h4 className="font-display text-lg mb-4">{c.title}</h4>
                 <ul className="space-y-2 text-base text-primary-foreground/70">
                   {c.items.map((i) => (
-                    <li key={i}><Link to="/" className="hover:text-primary-foreground">{i}</Link></li>
+                    <li key={typeof i === 'string' ? i : i.label}>
+                      {typeof i === 'string' ? (
+                        <Link to="/" className="hover:text-primary-foreground">{i}</Link>
+                      ) : (
+                        <Link to={i.to} className="hover:text-primary-foreground">{i.label}</Link>
+                      )}
+                    </li>
                   ))}
                 </ul>
               </div>
