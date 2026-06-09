@@ -14,7 +14,7 @@ export default defineConfig({
   },
   vite: {
     build: {
-      outDir: ".vercel/output/static",
+      outDir: ".vercel/output/static/client",
     },
   },
 });
